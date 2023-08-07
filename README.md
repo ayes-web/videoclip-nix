@@ -1,6 +1,6 @@
 # videoclip mpv plugin nix flake package
 
-## Usage in home-manager
+## Using with home-manager
 
 ```nix
 programs.mpv = {
