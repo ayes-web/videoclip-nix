@@ -1,4 +1,5 @@
 # videoclip mpv plugin nix flake package
+Nix package for https://github.com/Ajatt-Tools/videoclip
 
 ## Using with home-manager
 
