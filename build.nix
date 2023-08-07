@@ -16,12 +16,15 @@ pkgs.stdenvNoCC.mkDerivation rec {
 
   dontBuild = true;
 
-  patchPhase = ''
-    substituteInPlace platform.lua \
-    --replace \'curl\' \'${lib.getExe pkgs.curl}\' \
-    --replace xclip ${lib.getExe pkgs.xclip} \
-    --replace wl-copy ${lib.getBin pkgs.wl-clipboard}/bin/wl-copy
-  '';
+  patchPhase =
+    ''
+      substituteInPlace platform.lua \
+      --replace \'curl\' \'${lib.getExe pkgs.curl}\' \
+    ''
+    + lib.optionalString pkgs.stdenv.isLinux ''
+      --replace xclip ${lib.getExe pkgs.xclip} \
+      --replace wl-copy ${lib.getBin pkgs.wl-clipboard}/bin/wl-copy
+    '';
 
   installPhase = ''
     runHook preInstall
