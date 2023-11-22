@@ -3,15 +3,15 @@
   lib,
   ...
 }:
-pkgs.stdenvNoCC.mkDerivation rec {
-  name = "mpv-videoclip";
-  pname = name;
+pkgs.stdenvNoCC.mkDerivation {
+  pname = "videoclip";
+  version = "unstable-2023-11-01";
 
   src = pkgs.fetchFromGitHub {
     owner = "Ajatt-Tools";
     repo = "videoclip";
-    rev = "master";
-    sha256 = "sha256-VP+NlGRltGeeXRxhoDUZEp/xF9MEl0zu7g8AfeuNByc";
+    rev = "509b6b624592dbac6f2d7e0c4bc92a76460e7129";
+    hash = "sha256-fMuoBWM0bmRhdRoGxLYsqBjy2H+AVwOvVeva3SBR/EA=";
   };
 
   dontBuild = true;

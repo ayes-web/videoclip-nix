@@ -14,9 +14,15 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-      in
-        with pkgs; {
-          packages.default = callPackage ./build.nix {};
-        }
+
+        videoclip = pkgs.callPackage ./videoclip.nix {};
+      in {
+        overlay = final: prev: {
+          videoclip = videoclip;
+        };
+
+        packages.mpv-videoclip = videoclip;
+        packages.default = videoclip;
+      }
     );
 }
