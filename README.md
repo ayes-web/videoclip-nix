@@ -7,7 +7,7 @@ Nix package for https://github.com/Ajatt-Tools/videoclip
 programs.mpv = {
     enable = true;
     scripts = [
-        (builtins.getFlake "github:ayes-web/videoclip-nix").packages.${builtins.currentSystem}.default
+        (builtins.getFlake "github:BatteredBunny/videoclip-nix").packages.${builtins.currentSystem}.default
     ];
 };
 ```
